@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../build/eorzea_time.js"></script>
+  </head>
+  <body>
+    <span id="month"></span> 月
+    <span id="day"></span> 日
+    <span id="hour"></span> 時
+    <span id="minute"></span> 分
+    <span id="day_of_the_week"></span>
+    <script type="text/javascript">
+     eorzea_time = new EorzeaTime();
+     update_view = function() {
+         document.getElementById("month").innerHTML = eorzea_time.month();
+         document.getElementById("day").innerHTML = eorzea_time.day();
+         document.getElementById("hour").innerHTML = eorzea_time.hour();
+         document.getElementById("minute").innerHTML = eorzea_time.minute();
+         document.getElementById("day_of_the_week").innerHTML = eorzea_time.day_of_the_week();
+     };
+     update_view();
+     setInterval(function() {
+         eorzea_time.update();
+         update_view();
+     }, eorzea_time.update_interval());
+    </script>
+  </body>
+</html>
